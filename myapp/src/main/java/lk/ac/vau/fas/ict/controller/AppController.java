@@ -3,6 +3,7 @@ package lk.ac.vau.fas.ict.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -80,16 +81,27 @@ public class AppController {
 	}
 
 	@PutMapping("/{regNo}")
-    public String updateStudent(@PathVariable("regNo") String regNo, @RequestBody Student updatedStudent) {
-        for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).getRegNo().equalsIgnoreCase(regNo)) {
-                students.set(i, updatedStudent);
-                return "Student updated successfully!";
-            }
-        }
-        return "Student not found!";
-    }
-	
+	public String updateStudent(@PathVariable("regNo") String regNo, @RequestBody Student updatedStudent) {
+		for (int i = 0; i < students.size(); i++) {
+			if (students.get(i).getRegNo().equalsIgnoreCase(regNo)) {
+				students.set(i, updatedStudent);
+				return "Student updated successfully!";
+			}
+		}
+		return "Student not found!";
+	}
+
+	@DeleteMapping("/{regNo}")
+	public String deleteStudent(@PathVariable("regNo") String regNo) {
+		for (int i = 0; i < students.size(); i++) {
+			if (students.get(i).getRegNo().equalsIgnoreCase(regNo)) {
+				students.remove(i);
+				return "Student deleted successfully!";
+			}
+		}
+		return "Student not found!";
+	}
+
 	@GetMapping("/age/{ag}")
 	public String MyAge(@PathVariable("ag") int age) {
 		return "My age is" + age;
