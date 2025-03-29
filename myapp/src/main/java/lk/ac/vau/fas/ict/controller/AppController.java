@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -77,6 +79,17 @@ public class AppController {
 		return sortedStudents;
 	}
 
+	@PutMapping("/{regNo}")
+    public String updateStudent(@PathVariable("regNo") String regNo, @RequestBody Student updatedStudent) {
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getRegNo().equalsIgnoreCase(regNo)) {
+                students.set(i, updatedStudent);
+                return "Student updated successfully!";
+            }
+        }
+        return "Student not found!";
+    }
+	
 	@GetMapping("/age/{ag}")
 	public String MyAge(@PathVariable("ag") int age) {
 		return "My age is" + age;
