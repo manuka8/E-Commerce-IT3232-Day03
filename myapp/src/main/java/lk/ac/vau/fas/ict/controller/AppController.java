@@ -68,6 +68,15 @@ public class AppController {
 		return filteredStudents;
 	}
 
+	@GetMapping("/students/sorted-by-gpa")
+	public List<Student> getStudentsSortedByGPA() {
+		List<Student> sortedStudents = new ArrayList<>(students);
+
+		sortedStudents.sort((s1, s2) -> Double.compare(s2.getGpa(), s1.getGpa())); // Sorting in descending order
+
+		return sortedStudents;
+	}
+
 	@GetMapping("/age/{ag}")
 	public String MyAge(@PathVariable("ag") int age) {
 		return "My age is" + age;
