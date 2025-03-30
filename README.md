@@ -1,7 +1,7 @@
-# Student Management API
+# Student Management APP
 
 ## Overview
-This is a **Spring Boot REST API** for managing student records. It allows users to:
+This is a **Spring Boot REST APP** for managing student records. It allows users to:
 - Retrieve all students
 - Retrieve a student by registration number
 - Add a new student
