@@ -25,7 +25,7 @@ Ensure you have the following installed:
 ### Steps to Run
 1. Clone this repository:
    ```sh
-   git clone [https://github.com/manuka8/E-Commerce-IT3232-Day03.git]
+   git clone https://github.com/manuka8/E-Commerce-IT3232-Day03.git
    cd student-management
    ```
 2. Build the project or open the project using SpringToolSuite4:
